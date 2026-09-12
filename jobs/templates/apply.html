@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Apply - {{ job.title }}</title>
+<style>
+body{font-family:Arial;background:#e0f2fe;padding:40px}
+.card{background:white;max-width:500px;margin:auto;padding:30px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+input{width:100%;padding:10px;margin:10px 0;border-radius:6px;border:1px solid #ccc}
+button{background:#2563eb;color:white;padding:12px;width:100%;border:none;border-radius:6px;font-size:16px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Apply for {{ job.title }}</h2>
+<p>{{ job.company }} - {{ job.location }}</p>
+<form method="POST">
+{% csrf_token %}
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<input type="url" name="resume_link" placeholder="Resume Google Drive Link" required>
+<button type="submit">Submit Application</button>
+</form>
+</div>
+</body>
+</html>
